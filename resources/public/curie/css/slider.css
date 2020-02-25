@@ -1,0 +1,31 @@
+<style>
+.slidecontainer {
+	width: 200px;
+}
+
+.slider {
+  -webkit-appearance: none;
+  height: 35px;
+  width: 100px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.5;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 35px;
+  background: #8CAF50;
+  cursor: pointer;
+}
+
+
+</style>

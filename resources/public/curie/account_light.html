@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>System Settings</title>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+        <script src="js/html5shiv.min.js"></script>
+        <![endif]-->
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-switch.min.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css">
+        <link rel="stylesheet" type="text/css" href="css/select2.css">
+        <link rel="stylesheet" type="text/css" href="css/jquery-confirm.min.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-slider.min.css">
+        <link href="css/cbct_light.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+    <!-- top menu start-->
+    <div id="head-nav" class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="fa fa-gear"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"><span>CURIE</span></a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="system_light.html">System Settings</a></li>
+                        <li class="active"><a href="#">Account Setttings</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right user-nav">
+                        <li class="dropdown profile_menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Javis Heinscof <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" style="background-color: #36A3FF;color: #FFF;cursor:auto;">Setting</a></li>
+                                <li class="divider"></li>
+                                <li><a href="system_light.html">CURIE Setting</a></li>
+                                <li><a href="#">Account Settings</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Sign Out</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- top menu end-->
+        <hr style="margin-top: 0px;margin-bottom: 0px;border: 1;"/>
+        <!-- 主框架开始 -->
+        <div id="cl-wrapper" class="fixed-menu">
+            <!-- 左侧开始 -->
+            <div class="cl-sidebar" data-position="right" id="leftMenu">
+                <div class="settinglist cl-navblock" style="height: 100%;">
+                    <ul class="yiji">
+                        <li>
+                            <a href="#">CURIE System Settings</a>
+                        </li>
+                        <li>
+                            <a href="#" style="color: #ED784A;">Profile</a>
+                        </li>
+                        <li>
+                            <a href="#">Change password</a>
+                        </li>
+                        <li>
+                            <a href="#">Authoriztion</a>
+                        </li>
+                        <li>
+                            <a href="#">Create Account</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 左侧结束 -->
+            <div class="container-fluid" id="pcont">
+                <div class="cl-mcont">
+                    <div class="row dash-cols">
+                        <div class="col-sm-8 col-md-8">
+                            <div class="block-acc">
+                                <div class="content no-padding">
+                                    <label style="width: 150px;">Username:</label>
+                                    <span style="padding-left: 30px;">
+                                        <input type="text" name="username" size="30">
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="block-acc">
+                                <div class="content no-padding">
+                                    <label style="width: 150px;">Full Name:</label>
+                                    <span style="padding-left: 30px;">
+                                        <input type="text" name="fullname" size="30">
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="block-acc">
+                                <div class="content no-padding">
+                                    <label style="width: 150px;">Email:</label>
+                                    <span style="padding-left: 30px;">
+                                        <input type="text" name="email" size="30">
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="block-acc">
+                                <div class="content no-padding">
+                                    <label style="width: 150px;">Department:</label>
+                                    <span style="padding-left: 30px;">
+                                        <input type="text" name="department" size="30">
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="block-acc">
+                                <div class="content no-padding">
+                                    <label style="width: 150px;">Title:</label>
+                                    <span style="padding-left: 30px;">
+                                        <input type="text" name="title" size="30">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-md-4" style="margin-bottom: 0px;">
+                            <div class="block-right" style="height: 100%;margin-bottom: 0px;margin-top: 10px;">
+                                <div class="content no-padding" style="text-align: center;">
+                                    <img id="avatar" style="width:200px;height:300px;">
+                                </div>
+                            </div>
+                            <div class="block-right" style="height: 50px;margin-top: 10px;">
+                                <div class="content no-padding" style="text-align: center;line-height: 2px;">
+                                    <button class="tool-btn" id="uploadPic" style="font-weight: bold;margin-top: 18px;height: 40px;width: 100px;">Upload Pic</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12">
+                            <div class="content no-padding" style="float: right;margin-right: 150px;line-height: 2px;">
+                                <button class="tool-btn" id="save" style="font-weight: bold;margin-top: 18px;height: 40px;width: 100px;">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer navbar-fixed-bottom bottom-div">
+            <div class="row" style="width:100%">
+                <div id="statusbar" class="col-xs-1 statusbar">status bar</div>
+            </div>
+        </footer>
+        <!-- 主框架结束 -->
+        <!-- js -->
+        <script src="js/jquery.min.js" type="text/javascript"></script>
+        <script src="js/jquery.nanoscroller.js" type="text/javascript"></script>
+        <script src="js/general.js" type="text/javascript"></script>
+        <script src="js/jquery-ui.min.js" type="text/javascript"></script>
+        <script src="js/voice-commands.js" type="text/javascript"></script>
+        <script src="js/jquery.sparkline.min.js" type="text/javascript"></script>
+        <script src="js/jquery.nestable.js" type="text/javascript"></script>
+        <script src="js/bootstrap-switch.min.js" type="text/javascript"></script>
+        <script src="js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+        <script src="js/select2.js" type="text/javascript"></script>
+        <script src="js/jquery-confirm.min.js" type="text/javascript"></script>
+        <script src="js/skycons.js" type="text/javascript"></script>
+        <script src="js/bootstrap-slider.min.js" type="text/javascript"></script>
+        <script src="js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="js/account.js"></script>
+    </body>
+</html>

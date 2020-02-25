@@ -1,0 +1,61 @@
+<!DOCTYPE html class=" js csstransforms csstransforms3d csstransitions">
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Login CURIE</title>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+        <script src="js/html5shiv.min.js"></script>
+        <![endif]-->
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div class="wrapper" style="height: auto;min-height: 100%;">
+            <header class="main-header">
+                <span class="logo">CURIE</span>
+                <nav class="navbar" role="navigation">
+                    
+                </nav>
+            </header>
+            <div class="w3layouts">
+                <div class="signin-agile">
+                    <!--form action="#" id="loginForm" method="POST"-->
+		    <form action="cbct.html" id="loginForm" method="get">
+                        <ul>
+                            <li style="font-weight: bold;">
+                                Sign In CURIE
+                            </li>
+                            <li>
+                                <input type="text" name="username" style="width: 91%;" class="name" placeholder="UserName" required oninvalid="setCustomValidity('UserName Required')" oninput="setCustomValidity('')">
+                            </li>
+                            <li>
+                                <input type="password" name="password" style="width: 91%;" class="password" placeholder="password" required oninvalid="setCustomValidity('Password Required')" oninput="setCustomValidity('')">
+                            </li>
+                            <li>
+                                <input type="checkbox" id="brand1" value=""> Remember me
+                            </li>
+                            <li>
+                                <input type="submit" value="Sign In" style="width: 91%;">
+                            </li>
+                            <li style="color: #AFB2AB;">
+                                Have problem? <span style="border-bottom: 1px solid">Contact Us.</span>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+                <div class="mid-line"></div>
+                <div class="signup-agileinfo" style="padding-top: 150px;">
+                    <h3>CURIE System</h3>
+                    <p>Guide Better. Treat Better.</p>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/modernizr.custom.53451.js"></script>
+        <script src="js/login.js"></script>
+    </body>
+</html>

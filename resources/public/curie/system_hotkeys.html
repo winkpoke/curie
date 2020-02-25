@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>System Settings</title>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+        <script src="js/html5shiv.min.js"></script>
+        <![endif]-->
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-switch.min.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css">
+        <link rel="stylesheet" type="text/css" href="css/select2.css">
+        <link rel="stylesheet" type="text/css" href="css/jquery-confirm.min.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-slider.min.css">
+        <link href="css/cbct.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+    <!-- top menu start-->
+    <div id="head-nav" class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="fa fa-gear"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"><span>CURIE</span></a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#"><span style="border-bottom: 3px solid;">System Settings</span></a></li>
+                        <li><a href="account.html">Account Setttings</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right user-nav">
+                        <li class="dropdown profile_menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Javis Heinscof <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">System Settings</a></li>
+                                <li><a href="account.html">Account Settings</a></li>
+                                <li><a href="#">Sign Out</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- top menu end-->
+        <hr style="margin-top: 0px;margin-bottom: 0px;border: 1;"/>
+        <!-- 主框架开始 -->
+        <div id="cl-wrapper" class="fixed-menu" style="height: 100%;">
+            <!-- 左侧开始 -->
+            <div class="cl-sidebar" data-position="right" id="leftMenu">
+                <div class="settinglist cl-navblock" style="height: 100%;">
+                    <ul class="yiji">
+                        <li>
+                            <a href="system_tolerance.html">Tolerance</a>
+                        </li>
+                        <li>
+                            <a href="#">Image Accquisition</a>
+                        </li>
+                        <li>
+                            <a href="#" class="setting-menu-active">Hot-keys</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 左侧结束 -->
+            <div class="container-fluid" id="pcont" style="height: 100%;">
+                <div class="cl-mcont" style="height: 100%;">
+                    <div class="row dash-cols">
+                        <div class="block">
+                            <div class="content no-padding" style="height: 100%;">
+                                <label style="width: 120px;color:#AFB2AB;">Shift P/S image:</label>
+                                <span style="padding-left: 20px;color: #1C1C1C;">
+                                    <input type="text" name="minLimitation" size="10" class="search-input" style="width: 20%;padding-left: 10px;">
+                                </span>
+                                <span style="padding-left: 20px;">
+                                    <i class="fa fa-question-circle-o" aria-hidden="true" data-toggle="tooltip" title="Shift P/S image ........."></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row dash-cols">
+                        <div class="block">
+                            <div class="content no-padding" style="height: 100%;">
+                                <label style="width: 120px;color:#AFB2AB;">Change W/L:</label>
+                                <span style="padding-left: 20px;color: #1C1C1C;">
+                                    <input type="text" name="minTolerance" size="10" class="search-input" style="width: 20%;padding-left: 10px;">
+                                </span>
+                                <span style="padding-left: 20px;">
+                                    <i class="fa fa-question-circle-o" aria-hidden="true" data-toggle="tooltip" title="Change W/L ........."></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row dash-cols footer navbar-fixed-bottom" style="line-height: 2px;bottom: 0;margin-bottom: 10%;text-align: center;">
+                        <button class="tool-btn" id="saveButton" style="font-weight: bold;margin-top: 18px;height: 40px;width: 15%;">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 主框架结束 -->
+        <!-- js -->
+        <script src="js/jquery.min.js" type="text/javascript"></script>
+        <script src="js/jquery.nanoscroller.js" type="text/javascript"></script>
+        <script src="js/general.js" type="text/javascript"></script>
+        <script src="js/jquery-ui.min.js" type="text/javascript"></script>
+        <script src="js/voice-commands.js" type="text/javascript"></script>
+        <script src="js/jquery.sparkline.min.js" type="text/javascript"></script>
+        <script src="js/jquery.nestable.js" type="text/javascript"></script>
+        <script src="js/bootstrap-switch.min.js" type="text/javascript"></script>
+        <script src="js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+        <script src="js/select2.js" type="text/javascript"></script>
+        <script src="js/jquery-confirm.min.js" type="text/javascript"></script>
+        <script src="js/skycons.js" type="text/javascript"></script>
+        <script src="js/bootstrap-slider.min.js" type="text/javascript"></script>
+        <script src="js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="js/system.js"></script>
+    </body>
+</html>
