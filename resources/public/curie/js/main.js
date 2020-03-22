@@ -211,6 +211,45 @@
 		}
 	}
 	
+	function getAllPixel()
+	{
+		var a=[];
+		for (var i = 0; i < imagestack.length; i++)
+		{
+			var b = imagestack[i][1].getPixelData;
+			for( var j in b)
+			{
+			  a.push(b[j]);
+			}
+		}
+		console.log("All pixels: ", a);
+		return a;
+	}
+	
+	function getPixelArray()
+	{
+		var a=[];
+		for (var i = 0; i < imagestack.length; i++)
+		{
+			var b = imagestack[i][1].getPixelData;
+		    a.push(b);
+		}
+		console.log("All pixel array: ", a);
+		return a;
+	}
+	
+	function getAllPixelDimension()
+	{
+		var a=[];
+		if(imagestack.length>0)
+		{
+			var image = imagestack[0][1];
+			a.push(image.rows, image.columns, imagestack.length);
+		}
+		console.log("All pixel array dimension: ", a);
+		return a;
+	}
+	
 	function prepareData() {
 		console.log("Prepare data for ", (isPrimary== true)? "primary":"secondary");
         var layers = imagestack.length;
@@ -220,6 +259,11 @@
 		}
 		resetSel();
 		imagestack.sort(compareImage); //;function(a,b){a[0]>b[0];})
+		//begin of example
+		getAllPixel();
+		getPixelArray();
+		getAllPixelDimension();
+		//end of example
 		ipps.sort(compareIPP);
 		var image = imagestack[0][1];
 		xspacing = image.xspacing;
