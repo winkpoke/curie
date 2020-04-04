@@ -210,7 +210,7 @@
 			zslices = zslices2;	
 		}
 	}
-	
+
 	function getAllPixel()
 	{
 		var a=[];
@@ -226,16 +226,48 @@
 		return a;
 	}
 	
-	function getPixelArray()
+	function getAllPixelArraybuffer()
 	{
 		var a=[];
+		var t = "type";
 		for (var i = 0; i < imagestack.length; i++)
 		{
 			var b = imagestack[i][1].getPixelData;
-		    a.push(b);
+			
+			var c=[];
+			for( var j in b )
+			{
+			   c.push(b[j]);
+			}
+			
+			var buffer;
+			if( b instanceof Uint16Array){
+				t = "Uint16Array";
+				buffer = new Uint16Array(c).buffer;
+			}
+			else if(b instanceof Int16Array){
+				t = "Int16Array";
+				buffer = new Int16Array(c).buffer;
+			}
+			else if( b instanceof Uint8Array){
+				t = "Uint8Array";
+				 buffer = new Uint8Array(c).buffer;
+			}
+			else if(b instanceof Int8Array){
+				t = "Int8Array";
+				buffer = new Int8Array(c).buffer;
+			}
+			a.push(buffer);
 		}
-		console.log("All pixel array: ", a);
+		console.log("All pixels: ", a);
+		alert("The data type is: " + t);
+		
 		return a;
+	}
+
+	function saveData (writeArrays) {
+	    var blob = new Blob(writeArrays, {type: 'application/octet-stream'});
+	    return blob;
 	}
 	
 	function getAllPixelDimension()
@@ -250,6 +282,17 @@
 		return a;
 	}
 	
+	function download(){
+		alert("download..");
+		var data = getAllPixelArraybuffer();
+		var out = saveData(data);
+		var uriContent = URL.createObjectURL(out);
+		var lnkDownload = document.getElementById('lnkDownload');
+		lnkDownload.download = 'data.raw';
+		lnkDownload.href = uriContent;
+		lnkDownload.click();
+	}
+	
 	function prepareData() {
 		console.log("Prepare data for ", (isPrimary== true)? "primary":"secondary");
         var layers = imagestack.length;
@@ -259,11 +302,6 @@
 		}
 		resetSel();
 		imagestack.sort(compareImage); //;function(a,b){a[0]>b[0];})
-		//begin of example
-		getAllPixel();
-		getPixelArray();
-		getAllPixelDimension();
-		//end of example
 		ipps.sort(compareIPP);
 		var image = imagestack[0][1];
 		xspacing = image.xspacing;
@@ -300,6 +338,9 @@
 		for (var i = 0; i < zslices.length; i++) {
 			zslices[i] = [origin.z + i * zspacing];
 		}
+		
+		//temporary download
+		download();
 	}
 	function showPatientInfo(image){
 		document.getElementById("patientnm").textContent = image.patinfo[0];
@@ -1078,6 +1119,25 @@
 			document.getElementById(id2).style.backgroundColor= color;
 	}
 
+
+	function arrayBufferToBase64Img(buffer) {
+	  const str = String.fromCharCode(...new Uint8Array(buffer));
+	  return `data:image/jpeg;base64,${window.btoa(str)}`;
+	}
+	
+	function ab2str(buf) {
+	  return String.fromCharCode.apply(null, new Uint16Array(buf));
+	}
+	
+	function str2ab(str) {
+	  var buf = new ArrayBuffer(str.length*2); // 2 bytes for each char
+	  var bufView = new Uint16Array(buf);
+	  for (var i=0, strLen=str.length; i < strLen; i++) {
+	    bufView[i] = str.charCodeAt(i);
+	  }
+	  return buf;
+	}
+	
 /*
 	function getCursorPos(e) {
 			var a, x = 0,

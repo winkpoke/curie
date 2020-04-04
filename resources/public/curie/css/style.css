@@ -157,7 +157,7 @@ input[type="submit"]{
 }
 
 input[type="submit"]:hover{
-	background:#081148;
+	background:#2E8B57;
 }
 .footer-w3l {
     margin: 50px 0 15px 0;
@@ -169,7 +169,7 @@ input[type="submit"]:hover{
 	line-height:27px;
 }
 .footer-w3l p a{
-	color:#fff;
+	color:#000fff;
 }
 .footer-w3l p a:hover{
 	text-decoration:underline;
