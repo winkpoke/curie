@@ -152,20 +152,38 @@
 										break;
 									}
 								}
+								
+								///Example for raw without header
+								if( foundField["DimSize"] == false || 
+								    foundField["Offset"] == false || 
+									foundField["ElementSpacing"] == false || 
+									foundField["ElementType"] == false || 
+									foundField["Data"] == false 
+									) {
+									console.log("Header info is incomplete!");
+									dataSet["Offset"] = [0,0,0];
+									dataSet["DimSize"] = [1024,1024,1];
+									dataSet["ElementSpacing"] = [.5,.5,.5];
+									dataSet["ElementType"] = "MET_INT";
+									dataSet["Data"] = arrayBuffer;
+									console.log("Now data is reset to : ", dataSet);
+								}
+								
 								byteArray = null;
 								arrayBuffer = null;
 							}
 						}
 						getImagecore(dataSet, bRaw).then(function(value) {
+							if( value == null ) {
+								console.log("Warning: not a valid image file, skipped");
+								return;
+							}
 							Object.assign(image, value);
 							if(image.isRaw == false){
+								
 								imagestack.push([image.origin, image]);
-								imageindex++;
+								//imageindex++;
 								ipps.push(image.origin);
-								//var pixels = new Uint16Array(image.getPixelData);
-								//if (image.getPixelData.length > 0) {
-									//displayImage(image, "T");
-								//}
 							}
 							else{
 								console.log("raw image process");
@@ -274,7 +292,24 @@
 				for(var si=0;si<slices;si++){
 					slicezi.push(origin[2] + si* sliceSpacing);
 				}
-				var pixelData = new Float32Array(dataSet.Data, dataSet.data, numPixels*slices);
+				var pixelData = null;
+				if( dataSet.ElementType == "MET_FLOAT"	) {
+					pixelData = new Float32Array(dataSet.Data, 0, numPixels*slices);	
+				}
+				if( dataSet.ElementType == "MET_INT" ){
+					pixelData = new Int16Array(dataSet.Data, 0, numPixels*slices);
+				}
+				if( dataSet.ElementType == "MET_UINT" ){
+					pixelData = new Uint16Array(dataSet.Data, 0, numPixels*slices);
+				}
+				if( dataSet.ElementType == "MET_CHAR" ){
+					pixelData = new Int8Array(dataSet.Data, 0, numPixels*slices);
+				}
+				if( dataSet.ElementType == "MET_UCHAR" ){
+					pixelData = new Uint8Array(dataSet.Data, 0, numPixels*slices);
+				}
+				
+				
 				let image = {
 					isRaw: bRaw,
 					height: rows,
@@ -302,6 +337,10 @@
 
 
 			var modality = dataSet.string('x00080060'); //MODALITY
+
+			if(modality != "CT" && modality != "MR") {
+				return Promise.resolve(null);
+			}
 			var pn = dataSet.string('x00100010');
 			var patId = dataSet.string('x00100020');
 			var sliceThick = dataSet.string('x00180050');
@@ -359,6 +398,9 @@
 			}
 
 			var pixelDataElement = dataSet.elements.x7fe00010;
+			if( pixelDataElement === undefined || pixelDataElement.dataOffset === undefined){
+				console.log("no pixel data");
+			}
 			var buffer = dataSet.byteArray.buffer;
 			var dataOffset = pixelDataElement.dataOffset;
 			var numPixels = rows * columns;
