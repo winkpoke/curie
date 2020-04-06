@@ -229,7 +229,7 @@
 	function getAllPixelArraybuffer()
 	{
 		var a=[];
-		var t = "type";
+		var t = "other type";
 		for (var i = 0; i < imagestack.length; i++)
 		{
 			var b = imagestack[i][1].getPixelData;
@@ -256,6 +256,10 @@
 			else if(b instanceof Int8Array){
 				t = "Int8Array";
 				buffer = new Int8Array(c).buffer;
+			}
+			else if( b instanceof Float32Array){
+				t = "Float32Array";
+				buffer = new Float32Array(c).buffer;
 			}
 			a.push(buffer);
 		}
